@@ -21,28 +21,15 @@ namespace ET.Client
 
 		private static async ETTask TakePhotoCor(this DlgBottom self)
 		{
-			// self.ClientScene().GetComponent<UIComponent>().GetDlgLogic<>()
 			await Application.RequestUserAuthorization(UserAuthorization.WebCam);
-			//没有权限
 			if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
 			{
-				//TODO 
+				Log.Warning("没有权限!!");	
+				return;
 			}
-
-			WebCamDevice[] devices = WebCamTexture.devices;
-			if (WebCamTexture.devices.Length <= 0)
-			{
-				Log.Error("没有摄像头，请检查");
-			}
-			else
-			{
-				string deviceName = devices[0].name;
-				//获取size
-				RawImage raw;
-				// WebCamTexture webCamTexture = new WebCamTexture(deviceNam);
-			}
-			
-			
+			Log.Warning("权限通过");
+			await self.ClientScene().GetComponent<UIComponent>().ShowWindowAsync<DlgCamera>();
+			self.ClientScene().GetComponent<UIComponent>().GetDlgLogic<DlgCamera>().Refresh();
 			await ETTask.CompletedTask;
 		}
 	}
