@@ -5,9 +5,10 @@ namespace ET.Client
     [Event(SceneType.Client)]
     public class AppStartInitFinish_LoadUI : AEvent<AppStartInitFinish>
     {
-        protected override ETTask Run(Scene scene, AppStartInitFinish a)
+        protected override async ETTask Run(Scene scene, AppStartInitFinish a)
         {
-            throw new System.NotImplementedException();
+            scene.GetComponent<UIComponent>().ShowWindow(WindowID.WindowID_Bottom);
+            await ETTask.CompletedTask;
         }
     }
 }
