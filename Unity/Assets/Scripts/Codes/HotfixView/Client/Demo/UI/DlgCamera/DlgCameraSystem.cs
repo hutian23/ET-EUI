@@ -25,6 +25,7 @@ namespace ET.Client
             {
                 self.WebCamTexture.Stop();
             }
+
             self.View.E_CameraRawImage.texture = null;
             self.ClientScene().GetComponent<UIComponent>().HideWindow<DlgCamera>();
         }
@@ -40,13 +41,10 @@ namespace ET.Client
             WebCamDevice device = WebCamTexture.devices[0];
             string deviceName = device.name;
 
-            self.WebCamTexture = new WebCamTexture(deviceName, Screen.width,Screen.height, 60)
-            {
-                wrapMode = TextureWrapMode.Repeat
-            };
+            self.WebCamTexture = new WebCamTexture(deviceName, 1980,1080, 60) { wrapMode = TextureWrapMode.Clamp };
 
-            AspectRatioFitter fit = self.View.E_CameraRawImage.GetComponent<AspectRatioFitter>();
-            fit.aspectRatio = (float)self.WebCamTexture.width / self.WebCamTexture.height;
+            // AspectRatioFitter fit = self.View.E_CameraRawImage.GetComponent<AspectRatioFitter>();
+            // fit.aspectRatio = (float)self.WebCamTexture.width / self.WebCamTexture.height;
             self.View.E_CameraRawImage.texture = self.WebCamTexture;
             self.WebCamTexture.Play();
         }
