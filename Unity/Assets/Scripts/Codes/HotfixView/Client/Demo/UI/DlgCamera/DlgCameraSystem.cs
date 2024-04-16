@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Windows;
 
 namespace ET.Client
 {
@@ -12,6 +10,7 @@ namespace ET.Client
         public static void RegisterUIEvent(this DlgCamera self)
         {
             self.View.E_QuitButton.AddListener(self.QuitCamera);
+            self.View.E_PhotoButton.AddListenerAsync(self.PhotoCor);
         }
 
         public static void ShowWindow(this DlgCamera self, Entity contextData = null)
@@ -41,12 +40,34 @@ namespace ET.Client
             WebCamDevice device = WebCamTexture.devices[0];
             string deviceName = device.name;
 
-            self.WebCamTexture = new WebCamTexture(deviceName, 1980,1080, 60) { wrapMode = TextureWrapMode.Clamp };
-
-            // AspectRatioFitter fit = self.View.E_CameraRawImage.GetComponent<AspectRatioFitter>();
-            // fit.aspectRatio = (float)self.WebCamTexture.width / self.WebCamTexture.height;
+            self.WebCamTexture = new WebCamTexture(deviceName, 1980, 1080, 60) { wrapMode = TextureWrapMode.Clamp };
             self.View.E_CameraRawImage.texture = self.WebCamTexture;
             self.WebCamTexture.Play();
+        }
+
+        private static async ETTask PhotoCor(this DlgCamera self)
+        {
+            Texture2D tex = HelpUtility.TextureToTexture2D(self.View.E_CameraRawImage.texture);
+            byte[] bytes = tex.EncodeToPNG();
+            string path = Application.persistentDataPath + "/ScreenShoot/";
+            Debug.LogWarning(path);
+            if (!File.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            File.WriteAllBytes(path + Guid.NewGuid() + ".png", bytes);
+
+            //刷新图片，显示到相册中
+            // using (AndroidJavaClass PlayerActivity = new("com.unity3d.player.UnityPlayer"))
+            // {
+            //     AndroidJavaObject playerActivity = PlayerActivity.GetStatic<AndroidJavaObject>("currentActivity");
+            //     using (AndroidJavaObject Conn = new ("android.media.MediaScannerConnection",playerActivity,null))
+            //     {
+            //         Conn.CallStatic("scanFile",playerActivity,path,null,null);
+            //     }
+            // }
+            await ETTask.CompletedTask;
         }
     }
 }
