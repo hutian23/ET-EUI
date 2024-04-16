@@ -7,10 +7,13 @@
     <type fullname="MongoDB.Bson.Serialization.Options.DictionaryRepresentation" preserve="all" />
   </assembly>
   <assembly fullname="System">
+    <type fullname="System.CodeDom.Compiler.GeneratedCodeAttribute" preserve="all" />
     <type fullname="System.Collections.Generic.Queue`1" preserve="all" />
     <type fullname="System.Collections.Generic.SortedDictionary`2" preserve="all" />
     <type fullname="System.Collections.Generic.SortedDictionary`2/ValueCollection" preserve="all" />
     <type fullname="System.Collections.Generic.SortedDictionary`2/ValueCollection/Enumerator" preserve="all" />
+    <type fullname="System.ComponentModel.EditorBrowsableAttribute" preserve="all" />
+    <type fullname="System.ComponentModel.EditorBrowsableState" preserve="all" />
     <type fullname="System.Net.EndPoint" preserve="all" />
     <type fullname="System.Net.IPAddress" preserve="all" />
     <type fullname="System.Net.IPEndPoint" preserve="all" />
@@ -112,6 +115,7 @@
     <type fullname="ET.CoroutineHelper" preserve="all" />
     <type fullname="ET.Define" preserve="all" />
     <type fullname="ET.GlobalConfig" preserve="all" />
+    <type fullname="ET.HelpUtility" preserve="all" />
     <type fullname="ET.PathHelper" preserve="all" />
     <type fullname="RedDotMonoView" preserve="all" />
     <type fullname="ReferenceCollector" preserve="all" />
@@ -173,16 +177,21 @@
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.Resources" preserve="all" />
     <type fullname="UnityEngine.SceneManagement.SceneManager" preserve="all" />
-    <type fullname="UnityEngine.Screen" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.TextAsset" preserve="all" />
     <type fullname="UnityEngine.Texture" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.TextureWrapMode" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
     <type fullname="UnityEngine.U2D.SpriteAtlas" preserve="all" />
     <type fullname="UnityEngine.UserAuthorization" preserve="all" />
     <type fullname="UnityEngine.Vector2" preserve="all" />
     <type fullname="UnityEngine.Vector3" preserve="all" />
+    <type fullname="UnityEngine.Windows.Directory" preserve="all" />
+    <type fullname="UnityEngine.Windows.File" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.ImageConversionModule">
+    <type fullname="UnityEngine.ImageConversion" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.InputLegacyModule">
     <type fullname="UnityEngine.Input" preserve="all" />
@@ -198,7 +207,6 @@
     <type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="all" />
     <type fullname="UnityEngine.EventSystems.EventTriggerType" preserve="all" />
     <type fullname="UnityEngine.EventSystems.UIBehaviour" preserve="all" />
-    <type fullname="UnityEngine.UI.AspectRatioFitter" preserve="all" />
     <type fullname="UnityEngine.UI.Button" preserve="all" />
     <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="all" />
     <type fullname="UnityEngine.UI.Image" preserve="all" />
@@ -234,12 +242,16 @@
     <type fullname="System.Console" preserve="all" />
     <type fullname="System.Diagnostics.DebuggableAttribute" preserve="all" />
     <type fullname="System.Diagnostics.DebuggableAttribute/DebuggingModes" preserve="all" />
+    <type fullname="System.Diagnostics.DebuggerBrowsableAttribute" preserve="all" />
+    <type fullname="System.Diagnostics.DebuggerBrowsableState" preserve="all" />
     <type fullname="System.Diagnostics.DebuggerDisplayAttribute" preserve="all" />
     <type fullname="System.Diagnostics.DebuggerHiddenAttribute" preserve="all" />
+    <type fullname="System.Diagnostics.DebuggerStepThroughAttribute" preserve="all" />
     <type fullname="System.Enum" preserve="all" />
     <type fullname="System.Exception" preserve="all" />
     <type fullname="System.Func`1" preserve="all" />
     <type fullname="System.Func`2" preserve="all" />
+    <type fullname="System.Guid" preserve="all" />
     <type fullname="System.IDisposable" preserve="all" />
     <type fullname="System.IO.File" preserve="all" />
     <type fullname="System.IO.Path" preserve="all" />

@@ -5,8 +5,5 @@
 	{
 
 		public DlgBottomViewComponent View { get => this.GetComponent<DlgBottomViewComponent>();} 
-
-		 
-
 	}
 }

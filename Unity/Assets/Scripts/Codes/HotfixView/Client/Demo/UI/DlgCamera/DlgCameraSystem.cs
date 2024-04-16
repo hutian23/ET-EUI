@@ -57,7 +57,7 @@ namespace ET.Client
             }
 
             File.WriteAllBytes(path + Guid.NewGuid() + ".png", bytes);
-
+            Debug.LogWarning("保存成功");
             //刷新图片，显示到相册中
             // using (AndroidJavaClass PlayerActivity = new("com.unity3d.player.UnityPlayer"))
             // {
